@@ -365,7 +365,7 @@ class AddPayment extends Component {
         const { visible, loading } = this.state;
         return (
             <div>
-                <a className="nav-link active font-weight-bold text-white " onClick={this.showModal}>Manage Payment Options</a>
+                <a className="nav-link active font-weight-bold text-red " onClick={this.showModal}>Manage Payment Options</a>
                 <Modal
                     visible={visible}
                     title="Payment Options"
