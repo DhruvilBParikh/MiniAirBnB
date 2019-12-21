@@ -31,7 +31,7 @@ class NavBar extends Component {
 
 
 	handleAddPayment = () => {
-		this.props.history.push(`http://localhost:3000/payment`);
+		this.props.history.push(`http:////34.230.8.86/:3000/payment`);
 		// <Route path="/payment" component={Payment}/>
 	}
 

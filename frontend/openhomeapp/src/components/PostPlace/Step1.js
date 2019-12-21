@@ -350,7 +350,7 @@ class Step1 extends Component {
             console.log("Property has been Posted")
             swal.fire("Property has been Posted !", "Successfully", "success").then(function (isConfirm) {
               if (isConfirm) {
-                window.location.href = "http://localhost:3000/viewproperties"
+                window.location.href = "http://34.230.8.86/:3000/viewproperties"
               } else {
                 //if no clicked => do something else
               }
