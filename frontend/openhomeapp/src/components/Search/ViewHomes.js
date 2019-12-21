@@ -189,7 +189,7 @@ export default class ViewHomes extends Component {
 					console.log(response.data.results[0].geometry.location.lng);
 					console.log(zip)
 
-					var randomNo = (Math.floor(Math.random() * 1000) + 1 )/100000;
+					var randomNo = (Math.floor(Math.random() * 1000) + 1) / 100000;
 
 					var z = {
 						latitude: response.data.results[0].geometry.location.lat + randomNo,
@@ -287,9 +287,14 @@ export default class ViewHomes extends Component {
 
 	handleZipcode = (e) => {
 		console.log('handleZipcode', e.target.value);
-		this.setState({
-			zipcode: e.target.value
-		})
+
+		const { value } = e.target;
+		const reg = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+		if ((!isNaN(value) && reg.test(value)) || value === '' || value === '-') {
+			this.setState({
+				zipcode: e.target.value
+			});
+		}
 		console.log(this.state.zipcode);
 	}
 
@@ -555,13 +560,14 @@ export default class ViewHomes extends Component {
 							onCancel={this.handleCancel}
 						>
 							<Form.Item label="Zipcode" onChange={this.handleZipcode} name="zipcode" {...formItemLayout}>
-								<Input placeholder="Type Zipcode" />
+								<InputNumber
+									//value={this.state.centerzip}
+									maxLength='5'
+								/>
 							</Form.Item>
 
 							<div>
 								<Form.Item label="Map Center Zip" onChange={this.handleMapZipcode} name="mapzipcode" {...formItemLayout}>
-									{/* <Input placeholder="Map Zipcode" /> */}
-
 									<InputNumber
 										value={this.state.centerzip}
 										maxLength='5'
