@@ -183,7 +183,7 @@ export default class ViewHomes extends Component {
 	checkValidZips = async (zip, desc) => {
 		if (zip !== null && zip !== undefined) {
 			var val = false;
-			const x = await axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + zip + '&key=' + 'AIzaSyATv_BCmdXC8fCaYcTqZ9vY5I5RaNlkzck')
+			const x = await axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + zip + '&key=' + 'AIzaSyArQJzIzwRkSpzdFWSBlrQffi0P99OQkdQ')// 'AIzaSyATv_BCmdXC8fCaYcTqZ9vY5I5RaNlkzck')
 				.then(response => {
 					console.log(response.data.results[0].geometry.location.lat);
 					console.log(response.data.results[0].geometry.location.lng);
